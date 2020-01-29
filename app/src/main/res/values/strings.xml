@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Project1SamRyanJamesJose</string>
+    <string name="grades">Grades</string>
+    <string name="insert_grades">Insert Grades</string>
+    <string name="display_grades">Display Grades</string>
+    <string name="update_grades">Update Grades</string>
+    <string name="eligible">Eligible</string>
 </resources>
