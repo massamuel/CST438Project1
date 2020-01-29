@@ -1,7 +1,9 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class MainActivity extends AppCompatActivity {
 
