@@ -4,7 +4,7 @@ package edu.csumb.spoplack.project1samryanjamesjose.Database.User;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user_table")
+@Entity(tableName = UserDatabase.USER_TABLE)
 public class User {
 
     @PrimaryKey(autoGenerate = true)

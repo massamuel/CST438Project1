@@ -1,6 +1,6 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.User;
 
-import androidx.lifecycle.LiveData;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -21,7 +21,8 @@ public interface UserDao {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM " + UserDatabase.USER_TABLE)
+    @Query("SELECT * FROM "+ UserDatabase.USER_TABLE)
     List<User> getAllUsers();
+
 
 }
