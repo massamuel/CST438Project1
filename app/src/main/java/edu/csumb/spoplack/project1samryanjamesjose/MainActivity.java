@@ -6,7 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.room.Room;
+
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.R;
+
 public class MainActivity extends AppCompatActivity {
+
+    UserDao mUserDao;
 
     private Button insertButton,
             displayButton,
@@ -17,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mUserDao = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DBNAME)
+                .allowMainThreadQueries()
+                .build()
+                .getUserDAO();
+
 
         insertButton = (Button) findViewById(R.id.insertButton);
         insertButton.setOnClickListener(new View.OnClickListener() {
