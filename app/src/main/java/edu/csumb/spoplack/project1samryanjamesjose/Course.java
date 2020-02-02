@@ -1,10 +1,13 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
 import java.util.Date;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "course_table")
 public class Course {
 
-
+    @PrimaryKey(autoGenerate = true)
     private String Instructor;
     private String Title;
     private String Description;

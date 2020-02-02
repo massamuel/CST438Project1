@@ -1,17 +1,26 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database;
 
+
+import edu.csumb.spoplack.project1samryanjamesjose.Course;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.CourseDao;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+import edu.csumb.spoplack.project1samryanjamesjose.User;
+
+
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
-import androidx.room.TypeConverters;
-import edu.csumb.spoplack.project1samryanjamesjose.User;
-//import edu.csumb.jofausto.gymlogv2.DB.TypeConverters.DateTypeConverter;
-//import edu.csumb.jofausto.gymlogv2.GymLog;
 
-@Database(entities = {User.class}, version=1)
-@TypeConverters(DateTypeConverter.class)
+@Database(entities = {User.class, Course.class}, version=1)
 public abstract class AppDatabase extends RoomDatabase {
-    public static final String DBNAME = "db-gymlog";
-    public static final String GYMLOG_TABLE = "gymlog";
-    public abstract GymLogDAO getGymLogDAO();
+
+    public static final String DBNAME = "AppDb";
+    public static final String USER_TABLE = "userTable";
+    public abstract UserDao getUserDAO();
+    public abstract CourseDao getCourseDao();
+
 }
