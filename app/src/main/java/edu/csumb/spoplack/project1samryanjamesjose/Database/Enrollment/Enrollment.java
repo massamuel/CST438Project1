@@ -1,6 +1,13 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Database.Enrollment;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "Enrollment_table")
 
 public class Enrollment {
+
+    @PrimaryKey(autoGenerate = true)
 
     public long StudentID;
     public long CourseID;

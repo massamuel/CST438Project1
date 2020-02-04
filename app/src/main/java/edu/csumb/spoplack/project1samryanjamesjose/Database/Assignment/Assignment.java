@@ -1,7 +1,13 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "assigment_table")
 
 public class Assignment {
 
+    @PrimaryKey(autoGenerate = true)
     private String Details;
     private double MaxScore;
     private double EarnedScore;

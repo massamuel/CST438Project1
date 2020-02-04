@@ -21,7 +21,7 @@ public interface CourseDao {
     @Delete
     void delete(Course course);
 
-    @Query("SELECT * FROM "+ AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM "+ AppDatabase.COURSE_TABLE)
     List<User> getAllCourse();
 
 }
