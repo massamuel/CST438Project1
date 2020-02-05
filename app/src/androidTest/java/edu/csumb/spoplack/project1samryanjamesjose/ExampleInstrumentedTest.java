@@ -14,7 +14,7 @@ import java.util.List;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
 import static org.junit.Assert.assertEquals;
 
@@ -37,11 +37,11 @@ public class ExampleInstrumentedTest {
 
 
     private UserDao userDao;
-    private UserDatabase db;
+    private AppDatabase db;
     @Before
     public void createDb() {
         db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(),
-                UserDatabase.class)
+                AppDatabase.class)
                 .allowMainThreadQueries()
                 .build();
 

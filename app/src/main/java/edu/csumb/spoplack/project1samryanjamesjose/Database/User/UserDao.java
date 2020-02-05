@@ -9,6 +9,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+
 @Dao
 public interface UserDao {
 
@@ -21,7 +23,7 @@ public interface UserDao {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM "+ UserDatabase.USER_TABLE)
+    @Query("SELECT * FROM "+ AppDatabase.USER_TABLE)
     List<User> getAllUsers();
 
 
