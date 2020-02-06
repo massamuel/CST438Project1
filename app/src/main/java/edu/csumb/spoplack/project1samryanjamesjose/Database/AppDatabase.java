@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 
-@Database(entities = {User.class}, version=1)
+@Database(entities = {User.class}, version=1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static final String DBNAME = "dbGradesApp";
