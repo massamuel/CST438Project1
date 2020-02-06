@@ -1,18 +1,17 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.DisplayGradesActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.EligibleActivity;
-import edu.csumb.spoplack.project1samryanjamesjose.InsertGradeActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
 import edu.csumb.spoplack.project1samryanjamesjose.UpdateGradesActivity;
 
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent insertGrade =
-                        new Intent(getApplicationContext(), InsertGradeActivity.class);
+                        new Intent(getApplicationContext(), CoursesActivity.class);
                 startActivity(insertGrade);
             }
         });
