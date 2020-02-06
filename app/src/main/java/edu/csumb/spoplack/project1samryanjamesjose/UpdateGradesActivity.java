@@ -1,7 +1,7 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class UpdateGradesActivity extends AppCompatActivity {
 
