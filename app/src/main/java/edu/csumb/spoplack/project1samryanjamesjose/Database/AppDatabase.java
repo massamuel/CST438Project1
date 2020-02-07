@@ -14,6 +14,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String DBNAME = "dbGradesApp";
     public static final String USER_TABLE = "userTable";
     public static final String COURSE_TABLE = "courseTable";
+    public static final String ASSIGNMENT_TABLE = "assignmentTable";
+    public static final String GRADE_CATEGORY = "gradeCategory";
     public abstract UserDao getUserDAO();
     public abstract CourseDao getCourseDAO();
 }

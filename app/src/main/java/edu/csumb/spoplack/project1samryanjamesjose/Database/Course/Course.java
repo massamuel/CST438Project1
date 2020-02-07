@@ -3,8 +3,9 @@ package edu.csumb.spoplack.project1samryanjamesjose.Database.Course;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
-@Entity(tableName = "courseTable")
+@Entity(tableName = AppDatabase.COURSE_TABLE)
 public class Course {
 
     @PrimaryKey(autoGenerate = true)
