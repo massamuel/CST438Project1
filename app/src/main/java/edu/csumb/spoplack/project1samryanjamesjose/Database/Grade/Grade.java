@@ -1,11 +1,15 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Database.Grade;
+import androidx.room.PrimaryKey;
 
 public class Grade {
+
+
     private double score;
     private long AssigmentID;
     private long studentID;
     private long CourseID;
     private String DateEarned;
+    @PrimaryKey(autoGenerate = true)
     private long gradeID;
 
     public Grade(double score, long assigmentID, long studentID, long courseID, String dateEarned, long gradeID) {

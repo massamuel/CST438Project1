@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 public class Assignment {
 
-    @PrimaryKey(autoGenerate = true)
+
     private String Details;
     private double MaxScore;
     private double EarnedScore;
@@ -15,9 +15,20 @@ public class Assignment {
     private String DueDate;
     private long CategoryID;
     private long CourseID;
+    @PrimaryKey(autoGenerate = true)
     private long AssignmentID;
 
-    public Assignment(String details,double maxScore, double earnedScore, String assignedDate, String dueDate, long categoryID, long courseID, long assignmentID) {
+    private String dateEarned;
+    private long gradeID;
+    private long studentID;
+    private double score;
+    //DateEarned
+    //gradeID
+    //StudentID
+    //score
+
+    public Assignment(String details,double maxScore, double earnedScore, String assignedDate, String dueDate, long categoryID, long courseID, long assignmentID,
+                      String dateEarned,long gradeID, long studentID, double score) {
         this.Details = details;
         this.MaxScore = maxScore;
         this.EarnedScore = earnedScore;
@@ -26,6 +37,10 @@ public class Assignment {
         this.CategoryID = categoryID;
         this.CourseID = courseID;
         this.AssignmentID = assignmentID;
+        this.dateEarned = dateEarned;
+        this.gradeID = gradeID;
+        this.studentID = studentID;
+        this.score = score;
     }
 
     public String getDetails() {return Details;}
@@ -37,6 +52,11 @@ public class Assignment {
     public long getCourseID() {return CourseID;}
     public long getAssignmentID() {return AssignmentID;}
 
+    public String getDateEarned() {return dateEarned;}
+    public long getGradeID() {return gradeID;}
+    public long getStudentID(){return studentID;}
+    public double getScore() {return score;}
+
     public void setDetails(String details) {this.Details = details;}
     public void setMaxScore(double maxScore) {this.MaxScore = maxScore;}
     public void setEarnedScore(double earnedScore) {this.EarnedScore = earnedScore;}
@@ -45,6 +65,11 @@ public class Assignment {
     public void setCategoryID(long categoryID) {this.CategoryID = categoryID;}
     public void setCourseID(long courseID) {this.CourseID = courseID;}
     public void setAssignmentID(long assignmentID) {this.AssignmentID = assignmentID;}
+
+    public void setDateEarned(String dateEarned) {this.dateEarned = dateEarned;}
+    public void setGradeID(long gradeID) {this.gradeID =  gradeID;}
+    public void setStudentID(long studentID){this.studentID =  studentID;}
+    public void setScore(double score) {this.score = score;}
 
     /*
     Details

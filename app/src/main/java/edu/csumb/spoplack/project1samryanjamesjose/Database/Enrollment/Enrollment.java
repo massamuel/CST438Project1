@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 public class Enrollment {
 
-    @PrimaryKey(autoGenerate = true)
+
 
     public long StudentID;
     public long CourseID;
