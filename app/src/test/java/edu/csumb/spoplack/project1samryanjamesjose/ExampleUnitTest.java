@@ -38,7 +38,7 @@ public class ExampleUnitTest {
     @Test void insertionWorks() {
         UserDao mUserDao;
 
-//        mUserDao = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DBNAME)
+//        mUserDao = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
 //                .allowMainThreadQueries()
 //                .build()
 //                .getUserDAO();

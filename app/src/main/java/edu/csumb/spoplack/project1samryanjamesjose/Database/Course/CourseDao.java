@@ -1,15 +1,26 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.Course;
 
 
+
 import java.util.List;
+
+
+import androidx.room.Dao;
 
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
+
+import java.util.List;
+
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+
+@Dao
 public interface CourseDao {
 
     @Insert
@@ -22,6 +33,7 @@ public interface CourseDao {
     void delete(Course course);
 
     @Query("SELECT * FROM "+ AppDatabase.COURSE_TABLE)
-    List<User> getAllCourse();
+    List<Course> getAllCourses();
+
 
 }

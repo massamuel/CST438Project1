@@ -10,6 +10,8 @@ import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
 import java.util.List;
 
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+
 @Dao
 public interface UserDao {
 

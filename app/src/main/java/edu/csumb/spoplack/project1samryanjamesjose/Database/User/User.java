@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
 
+
 @Entity(tableName = AppDatabase.USER_TABLE)
 public class User {
 
