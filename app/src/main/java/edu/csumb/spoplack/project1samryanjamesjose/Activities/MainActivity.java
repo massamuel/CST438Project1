@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//import android.view.View.onClickListener;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;

@@ -1,6 +1,7 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,9 @@ import edu.csumb.spoplack.project1samryanjamesjose.R;
 public class CoursesActivity extends AppCompatActivity {
 
     private CourseDao mCourseDao;
+
+    private TextView gradeNum;
+    private TextView gradeWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,4 +42,7 @@ public class CoursesActivity extends AppCompatActivity {
             //TODO: populate recycler view with userCourses
         }
     }
+
+
+
 }

@@ -25,4 +25,8 @@ public interface AssignmentDao {
 
     @Query("SELECT * FROM "+ AppDatabase.ASSIGNMENT_TABLE)
     List<Assignment> getAllAssignments();
+
+
+    @Query("SELECT * FROM "+ AppDatabase.ASSIGNMENT_TABLE + " NATURAL JOIN " + AppDatabase.GRADE_CATEGORY + " WHERE AssignmentID = :id" )
+    public List<Assignment> FindAssignmentById(long id);
 }
