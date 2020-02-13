@@ -21,7 +21,6 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
 
     Context context;
 
-
     public CoursesAdapter(ArrayList<Course> movies) {
         this.courses = movies;
     }
@@ -57,8 +56,6 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         TextView tvCourseInstructor;
         TextView tvCourseGrade;
 
-
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -66,8 +63,6 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
             tvCourseInstructor = itemView.findViewById(R.id.textViewClassInstructor);
             tvCourseGrade = itemView.findViewById(R.id.textViewCourseGrade);
 
-
         }
     }
-
 }

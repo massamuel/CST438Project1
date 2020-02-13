@@ -32,7 +32,7 @@ public class CoursesActivity extends AppCompatActivity {
                 .build()
                 .getCourseDAO();
 
-
+        //TODO: change method to only grab curr user's classes once persisting user is set up
         ArrayList<Course> userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
         coursesAdapter = new CoursesAdapter(userCourses);
 
