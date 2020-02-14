@@ -11,7 +11,7 @@ public class Assignment {
 
     public static HashMap<String,Double> score_weights = new HashMap<String,Double>();
 
-    score_weights.put()
+
 
     private String Details;
     private double MaxScore;
