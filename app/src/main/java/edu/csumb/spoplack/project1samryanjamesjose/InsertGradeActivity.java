@@ -11,3 +11,4 @@ public class InsertGradeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insert_grade);
     }
 }
+
