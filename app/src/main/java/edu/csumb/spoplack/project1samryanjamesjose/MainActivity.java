@@ -1,6 +1,8 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,15 +16,16 @@ import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    UserDao mUserDao;
+     UserDao mUserDao;
+
 
     private Button insertButton,
             displayButton,
             updateButton,
             eligibleButton;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+
+    protected void OnCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getUserDAO();
+
 
 
         insertButton = (Button) findViewById(R.id.insertButton);
@@ -69,7 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent eligibleGrades =
                         new Intent(getApplicationContext(), EligibleActivity.class);
                 startActivity(eligibleGrades);
+
+
+
+
             }
         });
+
+
+
     }
 }

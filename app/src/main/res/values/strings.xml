@@ -5,4 +5,7 @@
     <string name="display_grades">Display Grades</string>
     <string name="update_grades">Update Grades</string>
     <string name="eligible">Eligible</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
