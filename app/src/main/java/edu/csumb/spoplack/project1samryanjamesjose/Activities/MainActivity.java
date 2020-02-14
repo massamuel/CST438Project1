@@ -1,5 +1,6 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
+import android.os.Bundle;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -50,8 +51,12 @@ public class MainActivity extends AppCompatActivity {
         displayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle displayGradesBundle = new Bundle();
+                displayGradesBundle.putInt("page",1);
+
                 Intent displayGrades =
                         new Intent(getApplicationContext(), DisplayGradesActivity.class);
+                displayGrades.putExtras(displayGrades);
                 startActivity(displayGrades);
             }
         });
