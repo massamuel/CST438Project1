@@ -3,11 +3,15 @@ package edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+import java.util.HashMap;
 
 @Entity(tableName = AppDatabase.ASSIGNMENT_TABLE)
 
 public class Assignment {
 
+    public static HashMap<String,Double> score_weights = new HashMap<String,Double>();
+
+    score_weights.put()
 
     private String Details;
     private double MaxScore;
@@ -71,6 +75,7 @@ public class Assignment {
     public void setGradeID(long gradeID) {this.gradeID =  gradeID;}
     public void setStudentID(long studentID){this.studentID =  studentID;}
     public void setScore(double score) {this.score = score;}
+
 
     /*
     Details

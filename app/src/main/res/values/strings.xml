@@ -5,4 +5,11 @@
     <string name="display_grades">Display Grades</string>
     <string name="update_grades">Update Grades</string>
     <string name="eligible">Eligible</string>
+    <string-array name="assignment_type_array">
+        <item>Homework</item>
+        <item>Test</item>
+        <item>Quiz</item>
+        <item>Projects</item>
+    </string-array>
+
 </resources>
