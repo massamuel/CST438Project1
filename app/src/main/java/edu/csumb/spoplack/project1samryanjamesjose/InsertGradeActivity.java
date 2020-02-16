@@ -1,5 +1,6 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,7 +10,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import java.util.HashMap;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
 
@@ -19,7 +23,7 @@ public class InsertGradeActivity extends AppCompatActivity {
 
     private AssignmentDao assignmentDao;
     //private TextView grades_to_insert;
-    private EditText insertWeight;
+    private TextView Output;
     private EditText insertScore;
     private EditText insertOutOf;
     private Spinner gradeTypeSpinner;
@@ -36,11 +40,17 @@ public class InsertGradeActivity extends AppCompatActivity {
         gWeights.put("Projects",25.0);
         gWeights.put("Quiz",5.0);
 
+        assignmentDao = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
+                .allowMainThreadQueries()
+                .build()
+                .getAssignmentDAO();
+
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_grade);
-
+        insertScore = (EditText)findViewById(R.id.ScoreEditText);
+        insertOutOf = (EditText)findViewById(R.id.OutOfEditText);
         gradeTypeSpinner = (Spinner)findViewById(R.id.spinner);
 
         grade_adapter = ArrayAdapter.createFromResource(this,
@@ -54,13 +64,23 @@ public class InsertGradeActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlertDialog calculatedDialogue = new AlertDialog.Builder(InsertGradeActivity.this).create();
+                calculatedDialogue.setTitle("Grade caluclated!");
+                calculatedDialogue.setMessage("Your grade needed to get GOAL is: " );
                 //Required = (Goal − Current × (100% − Final Weight)) / Final Weight
+//                (Goal - Current * (1 - weight ))/weight
+
+                calculatedDialogue.show();
             }
         });
 
     }
     public void insertToDatabase() {
         //assignmentDao.insert(new Assignment());
+        int Score = Integer.parseInt(insertScore.getText().toString());
+        int OutOf = Integer.parseInt(insertOutOf.getText().toString());
+        assignmentDao.insert(new Assignment(Score,OutOf));
+
     }
 
 

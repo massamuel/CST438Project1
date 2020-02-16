@@ -16,6 +16,11 @@ public class Assignment {
     private int studentId;
     private int categoryId;
 
+    public Assignment(int maxScore, int earnedScore) {
+        this.maxScore = maxScore;
+        this.earnedScore = earnedScore;
+    }
+
     public Assignment(int maxScore, int earnedScore, int courseId, int studentId, int categoryId) {
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
