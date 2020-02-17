@@ -50,7 +50,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         return courses.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvCourseTitle;
         TextView tvCourseInstructor;
@@ -63,6 +63,20 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
             tvCourseInstructor = itemView.findViewById(R.id.textViewClassInstructor);
             tvCourseGrade = itemView.findViewById(R.id.textViewCourseGrade);
 
+        }
+
+        @Override
+        public void onClick(View v) {
+//            int position = getAdapterPosition();
+//            // make sure the position is valid, i.e. actually exists in the view
+//            if (position != RecyclerView.NO_POSITION) {
+//                Course course = courses.get(position);\
+//                Intent intent = new Intent(context, ); // TODO: connect to class view
+//
+//                intent.putExtra(Course.class.getSimpleName(), course);
+//                // show the activity
+//                context.startActivity(intent);
+//            }
         }
     }
 }

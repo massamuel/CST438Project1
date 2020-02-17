@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
-@Entity(tableName = AppDatabase.ASSINMENT_TABLE)
+@Entity(tableName = AppDatabase.ASSIGNMENT_TABLE)
 public class Assignment {
 
     @PrimaryKey(autoGenerate = true)
