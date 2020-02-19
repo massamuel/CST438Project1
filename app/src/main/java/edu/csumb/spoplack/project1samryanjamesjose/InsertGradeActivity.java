@@ -1,6 +1,5 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -8,13 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import java.util.HashMap;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+
+import java.util.HashMap;
+
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
 
 public class InsertGradeActivity extends AppCompatActivity {
@@ -84,13 +83,13 @@ public class InsertGradeActivity extends AppCompatActivity {
         });
 
     }
-    public void insertToDatabase() {
-        //assignmentDao.insert(new Assignment());
-        double Score = Double.parseDouble(insertScore.getText().toString());
-        double OutOf = Double.parseDouble(insertOutOf.getText().toString());
-        assignmentDao.insert(new Assignment(Score,OutOf));
-
-    }
+//    public void insertToDatabase() {
+//        //assignmentDao.insert(new Assignment());
+//        double Score = Double.parseDouble(insertScore.getText().toString());
+//        double OutOf = Double.parseDouble(insertOutOf.getText().toString());
+//        assignmentDao.insert(new Assignment(Score,OutOf));
+//
+//    }
 
 
 

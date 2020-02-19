@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.AddAssignment"></activity>
         <activity android:name=".Activities.CoursesActivity" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
