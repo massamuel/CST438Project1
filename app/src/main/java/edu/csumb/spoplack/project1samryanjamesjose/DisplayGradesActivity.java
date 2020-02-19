@@ -2,6 +2,7 @@ package edu.csumb.spoplack.project1samryanjamesjose;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class DisplayGradesActivity extends AppCompatActivity {
 
