@@ -10,13 +10,13 @@ public class Assignment {
 
     @PrimaryKey(autoGenerate = true)
     private int assignmentId;
-    private int maxScore;
-    private int earnedScore;
+    private double maxScore;
+    private double earnedScore;
     private int courseId;
     private int studentId;
     private int categoryId;
 
-    public Assignment(int maxScore, int earnedScore, int courseId, int studentId, int categoryId) {
+    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, int categoryId) {
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.courseId = courseId;
@@ -32,11 +32,11 @@ public class Assignment {
         return assignmentId;
     }
 
-    public int getMaxScore() {
+    public double getMaxScore() {
         return maxScore;
     }
 
-    public int getEarnedScore() {
+    public double getEarnedScore() {
         return earnedScore;
     }
 
