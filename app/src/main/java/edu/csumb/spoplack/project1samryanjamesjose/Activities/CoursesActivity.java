@@ -28,6 +28,7 @@ public class CoursesActivity extends AppCompatActivity {
     private CoursesAdapter coursesAdapter;
     private FloatingActionButton fab;
     private ArrayList<Course> userCourses;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class CoursesActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getCourseDAO();
+
+        userId = 1; // Todo: get userid from login page
 
         //TODO: change method to only grab curr user's classes once persisting user is set up
         updateList();
@@ -66,7 +69,7 @@ public class CoursesActivity extends AppCompatActivity {
 
     private void updateList() {
         userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
-        coursesAdapter = new CoursesAdapter(userCourses);
+        coursesAdapter = new CoursesAdapter(userCourses, userId);
 
         recyclerView = findViewById(R.id.rvClasses);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
