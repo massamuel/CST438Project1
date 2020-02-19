@@ -23,9 +23,10 @@ public class InsertGradeActivity extends AppCompatActivity {
 
     private AssignmentDao assignmentDao;
     //private TextView grades_to_insert;
-    private TextView Output;
+    private TextView output;
     private EditText insertScore;
     private EditText insertOutOf;
+    private EditText insertGoalGrade;
     private Spinner gradeTypeSpinner;
     private ArrayAdapter<CharSequence> grade_adapter;
     private Button submitBtn;
@@ -51,6 +52,8 @@ public class InsertGradeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insert_grade);
         insertScore = (EditText)findViewById(R.id.ScoreEditText);
         insertOutOf = (EditText)findViewById(R.id.OutOfEditText);
+        insertGoalGrade = (EditText)findViewById(R.id.goalGradeText);
+        output = (TextView)findViewById(R.id.outputText);
         gradeTypeSpinner = (Spinner)findViewById(R.id.spinner);
 
         grade_adapter = ArrayAdapter.createFromResource(this,
@@ -64,21 +67,27 @@ public class InsertGradeActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog calculatedDialogue = new AlertDialog.Builder(InsertGradeActivity.this).create();
-                calculatedDialogue.setTitle("Grade caluclated!");
-                calculatedDialogue.setMessage("Your grade needed to get GOAL is: " );
+                double goalGrade = Double.parseDouble(insertGoalGrade.getText().toString());
+                double scoreOnAssignment = Double.parseDouble(insertScore.getText().toString());
+                double scoreOutOfAssignment = Double.parseDouble(insertOutOf.getText().toString());
+
+                double calculation = (goalGrade - scoreOnAssignment/scoreOutOfAssignment) * 1 - weightedValue/weightedValue;
+//                AlertDialog calculatedDialogue = new AlertDialog.Builder(InsertGradeActivity.this).create();
+//                calculatedDialogue.setTitle("Grade caluclated!");
+//                calculatedDialogue.setMessage("Your grade needed to get GOAL is: " );
                 //Required = (Goal − Current × (100% − Final Weight)) / Final Weight
 //                (Goal - Current * (1 - weight ))/weight
 
-                calculatedDialogue.show();
+//                calculatedDialogue.show();
+                output.setText("You would need "  + Double.toString(calculation) + " On future assginments (calculated) to pass this ");
             }
         });
 
     }
     public void insertToDatabase() {
         //assignmentDao.insert(new Assignment());
-        int Score = Integer.parseInt(insertScore.getText().toString());
-        int OutOf = Integer.parseInt(insertOutOf.getText().toString());
+        double Score = Double.parseDouble(insertScore.getText().toString());
+        double OutOf = Double.parseDouble(insertOutOf.getText().toString());
         assignmentDao.insert(new Assignment(Score,OutOf));
 
     }
