@@ -1,11 +1,16 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -21,6 +26,8 @@ public class CoursesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CoursesAdapter coursesAdapter;
+    private FloatingActionButton fab;
+    private ArrayList<Course> userCourses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +40,36 @@ public class CoursesActivity extends AppCompatActivity {
                 .getCourseDAO();
 
         //TODO: change method to only grab curr user's classes once persisting user is set up
-        ArrayList<Course> userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
-        coursesAdapter = new CoursesAdapter(userCourses);
-
-
-        recyclerView = findViewById(R.id.rvClasses);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(coursesAdapter);
+        updateList();
 
         if(userCourses.isEmpty()) {
             Course cst438 = new Course("Dr. ClinkenBeard", "CST438", "Good class", "January 26", "May 9", 1);
             mCourseDao.insert(cst438);
             coursesAdapter.notifyItemInserted(0);
         }
+
+        fab = findViewById(R.id.fabAddCourse);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CoursesActivity.this, AddCourseActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        updateList();
+    }
+
+    private void updateList() {
+        userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
+        coursesAdapter = new CoursesAdapter(userCourses);
+
+        recyclerView = findViewById(R.id.rvClasses);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(coursesAdapter);
     }
 }

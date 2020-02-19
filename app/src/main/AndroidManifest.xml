@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.AssignmentActivity"></activity>
+        <activity android:name=".Activities.AddCourseActivity"></activity>
         <activity android:name=".Activities.CoursesActivity" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
