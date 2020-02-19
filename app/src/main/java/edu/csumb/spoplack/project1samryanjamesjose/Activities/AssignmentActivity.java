@@ -41,7 +41,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 .build()
                 .getAssignmentDAO();
 
-        //ArrayList<Assignment> userAssignments = (ArrayList<Assignment>) mAssignmentDao.getAllAssignments();
+
         ArrayList<Assignment> userAssignments =
                 (ArrayList<Assignment>) mAssignmentDao.getCourseAssignments(Integer.toString(courseId),
                                                                             Integer.toString(userId));
@@ -52,10 +52,6 @@ public class AssignmentActivity extends AppCompatActivity {
         recyclerView.setAdapter(assignmentAdapter);
 
         if(userAssignments.isEmpty()) {
-//            Assignment cst438 = new Assignment(10, 9, 438, 1234, 400);
-//
-//            mAssignmentDao.insert(cst438);
-//            assignmentAdapter.notifyItemInserted(0);
             Toast.makeText(this, "No assignments yet", Toast.LENGTH_LONG).show();
         }
     }

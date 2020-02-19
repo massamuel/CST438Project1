@@ -3,6 +3,7 @@ package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,9 +47,7 @@ public class CoursesActivity extends AppCompatActivity {
         updateList();
 
         if(userCourses.isEmpty()) {
-            Course cst438 = new Course("Dr. ClinkenBeard", "CST438", "Good class", "January 26", "May 9", 1);
-            mCourseDao.insert(cst438);
-            coursesAdapter.notifyItemInserted(0);
+            Toast.makeText(this, "No classes yet", Toast.LENGTH_LONG).show();
         }
 
         fab = findViewById(R.id.fabAddCourse);

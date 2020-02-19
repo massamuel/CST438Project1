@@ -52,7 +52,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 Course course = courses.get(position);
-                Intent intent = new Intent(context, AssignmentActivity.class); // TODO: connect to class view
+                Intent intent = new Intent(context, AssignmentActivity.class);
 
                 intent.putExtra("userId", userId);
                 intent.putExtra("courseId", course.getCourseId());
