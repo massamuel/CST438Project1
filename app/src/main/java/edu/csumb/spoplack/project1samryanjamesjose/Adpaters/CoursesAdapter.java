@@ -73,7 +73,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
 //                Course course = courses.get(position);\
 //                Intent intent = new Intent(context, ); // TODO: connect to class view
 //
-//                intent.putExtra(Course.class.getSimpleName(), course);
+//                intent.putExtra();
 //                // show the activity
 //                context.startActivity(intent);
 //            }
