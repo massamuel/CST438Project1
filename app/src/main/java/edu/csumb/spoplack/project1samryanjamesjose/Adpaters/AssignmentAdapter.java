@@ -40,8 +40,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
         Assignment assignment = assignments.get(position);
         holder.tvAssignmentId.setText(assignment.getAssignmentId());
-        holder.tvMaxScore.setText(assignment.getMaxScore());
-        holder.tvEarnedScore.setText(assignment.getEarnedScore());
+        holder.tvMaxScore.setText(Double.toString(assignment.getMaxScore()));
+        holder.tvEarnedScore.setText(Double.toString(assignment.getEarnedScore()));
 
     }
 
