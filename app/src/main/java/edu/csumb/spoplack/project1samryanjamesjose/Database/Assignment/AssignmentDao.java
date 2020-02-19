@@ -22,10 +22,10 @@ public interface AssignmentDao {
     @Delete
     void delete(Assignment assignment);
 
-    @Query("SELECT * FROM "+ AppDatabase.ASSINMENT_TABLE)
+    @Query("SELECT * FROM "+ AppDatabase.ASSIGNMENT_TABLE)
     List<Assignment> getAllAssignments();
 
-    @Query("SELECT * FROM "+ AppDatabase.ASSINMENT_TABLE + " WHERE courseId = :courseId " +
+    @Query("SELECT * FROM "+ AppDatabase.ASSIGNMENT_TABLE + " WHERE courseId = :courseId " +
             "AND studentId = :studentId")
     List<Assignment> getCourseAssignments(String courseId, String studentId);
 

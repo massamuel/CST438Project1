@@ -2,27 +2,32 @@ package edu.csumb.spoplack.project1samryanjamesjose.Adpaters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import edu.csumb.spoplack.project1samryanjamesjose.Activities.AssignmentActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.Course;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHolder>{
 
     ArrayList<Course> courses;
+    int userId;
 
     Context context;
 
-    public CoursesAdapter(ArrayList<Course> movies) {
-        this.courses = movies;
+    public CoursesAdapter(ArrayList<Course> courses, int userId) {
+        this.courses = courses;
+        this.userId = userId;
     }
 
     @NonNull
@@ -43,6 +48,18 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         holder.tvCourseInstructor.setText(course.getInstructor());
         holder.tvCourseGrade.setText("90.5");
 
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Course course = courses.get(position);
+                Intent intent = new Intent(context, AssignmentActivity.class); // TODO: connect to class view
+
+                intent.putExtra("userId", userId);
+                intent.putExtra("courseId", course.getCourseId());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -55,6 +72,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         TextView tvCourseTitle;
         TextView tvCourseInstructor;
         TextView tvCourseGrade;
+        ConstraintLayout constraintLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,7 +80,9 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
             tvCourseTitle = itemView.findViewById(R.id.textViewClassTitle);
             tvCourseInstructor = itemView.findViewById(R.id.textViewClassInstructor);
             tvCourseGrade = itemView.findViewById(R.id.textViewCourseGrade);
+            constraintLayout = itemView.findViewById(R.id.classItemLayout);
 
         }
+
     }
 }
