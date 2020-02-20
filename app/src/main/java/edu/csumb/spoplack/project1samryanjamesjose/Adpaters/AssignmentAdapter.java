@@ -39,7 +39,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     public void onBindViewHolder(@NonNull AssignmentAdapter.ViewHolder holder, int position) {
 
         Assignment assignment = assignments.get(position);
-        holder.tvAssignmentId.setText(assignment.getAssignmentId());
+        holder.tvAssignmentId.setText(assignment.getAssignmentName());
         holder.tvMaxScore.setText(Double.toString(assignment.getMaxScore()));
         holder.tvEarnedScore.setText(Double.toString(assignment.getEarnedScore()));
 

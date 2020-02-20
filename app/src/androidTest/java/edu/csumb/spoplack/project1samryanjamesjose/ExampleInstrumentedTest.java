@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.HashMap;
 import java.util.List;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
@@ -19,6 +20,7 @@ import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -129,5 +131,46 @@ public class ExampleInstrumentedTest {
         assertEquals(course1.getCourseId(), courseAssignments.get(1).getCourseId());
         assertEquals(user1.getUserId(), courseAssignments.get(0).getStudentId());
         assertEquals(user1.getUserId(), courseAssignments.get(1).getStudentId());
+    }
+
+    @Test public void calculateGrade() {
+        User user1 = new User("username", "password", "first", "last");
+        Course course1 = new Course("teacher", "myClass", "desc",
+                "date1", "date2", user1.getUserId());
+
+        HashMap<String, Double> weights = Assignment.gWeights;
+
+        Assignment assignment1 = new Assignment(20, 20, course1.getCourseId(),
+                user1.getUserId(), weights.get("Homework"));
+        Assignment assignment2 = new Assignment(20, 15, course1.getCourseId(),
+                user1.getUserId(), weights.get("Test"));
+        Assignment assignment3 = new Assignment(20, 18, course1.getCourseId(),
+                user1.getUserId(), weights.get("Quiz"));
+        Assignment assignment4 = new Assignment(20, 20, course1.getCourseId(),
+                user1.getUserId(), weights.get("Projects"));
+
+        assignmentDao.insert(assignment1);
+        assignmentDao.insert(assignment2);
+        assignmentDao.insert(assignment3);
+        assignmentDao.insert(assignment4);
+
+        List<Assignment> courseAssignments = assignmentDao.getCourseAssignments(
+                Integer.toString(course1.getCourseId()),
+                Integer.toString(user1.getUserId()));
+
+        Double calculatedGrade = calculate(courseAssignments);
+        //Worked out the math by hand, checking to see if function returns value close enough to what grade should be
+        assertTrue(Math.abs(0.9025 - calculatedGrade) < 0.0001);
+
+    }
+
+    private Double calculate(List<Assignment> assignments){
+        Double total = 0.0;
+        Double earned = 0.0;
+        for(Assignment assignment : assignments) {
+            total += assignment.getCategoryWeight() * assignment.getMaxScore();
+            earned += assignment.getCategoryWeight() * assignment.getEarnedScore();
+        }
+        return earned / total;
     }
 }
