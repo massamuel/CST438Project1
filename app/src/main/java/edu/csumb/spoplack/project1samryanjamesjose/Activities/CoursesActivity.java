@@ -43,7 +43,6 @@ public class CoursesActivity extends AppCompatActivity {
 
         userId = 1; // Todo: get userid from login page
 
-        //TODO: change method to only grab curr user's classes once persisting user is set up
         updateList();
 
         if(userCourses.isEmpty()) {
@@ -67,6 +66,7 @@ public class CoursesActivity extends AppCompatActivity {
     }
 
     private void updateList() {
+        //TODO: change method to only grab curr user's classes once persisting user is set up
         userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
         coursesAdapter = new CoursesAdapter(userCourses, userId);
 

@@ -46,6 +46,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         Course course = courses.get(position);
         holder.tvCourseTitle.setText(course.getTitle());
         holder.tvCourseInstructor.setText(course.getInstructor());
+        holder.tvCourseDesc.setText(course.getDescription());
         holder.tvCourseGrade.setText("90.5");
 
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +72,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
 
         TextView tvCourseTitle;
         TextView tvCourseInstructor;
+        TextView tvCourseDesc;
         TextView tvCourseGrade;
         ConstraintLayout constraintLayout;
 
@@ -79,6 +81,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
 
             tvCourseTitle = itemView.findViewById(R.id.textViewClassTitle);
             tvCourseInstructor = itemView.findViewById(R.id.textViewClassInstructor);
+            tvCourseDesc = itemView.findViewById(R.id.textViewCourseDesc);
             tvCourseGrade = itemView.findViewById(R.id.textViewCourseGrade);
             constraintLayout = itemView.findViewById(R.id.classItemLayout);
 
