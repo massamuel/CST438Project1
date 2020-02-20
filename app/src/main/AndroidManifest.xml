@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".Activities.CoursesActivity"></activity>
-        <activity android:name=".Home">
+        <activity android:name=".Activities.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +20,9 @@
         </activity>
         <activity android:name=".Activities.AssignmentActivity"></activity>
         <activity android:name=".Activities.AddCourseActivity"></activity>
-        <activity android:name=".Activities.MainActivity"/>
-        <activity android:name=".DisplayGradesActivity" />
-        <activity android:name=".EligibleActivity" />
-        <activity android:name=".InsertGradeActivity" />
-        <activity android:name=".UpdateGradesActivity" />
-        <activity android:name=".CreateAccount" />
-        <activity android:name=".Login" />
+        <activity android:name=".Activities.InsertGradeActivity" />
+        <activity android:name=".Activities.CreateAccountActivity" />
+        <activity android:name=".Activities.LoginActivity" />
     </application>
 
 </manifest>

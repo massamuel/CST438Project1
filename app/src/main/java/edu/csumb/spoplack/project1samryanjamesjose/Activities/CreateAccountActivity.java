@@ -1,4 +1,4 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,10 +15,10 @@ import androidx.room.Room;
 
 import java.util.ArrayList;
 
-import edu.csumb.spoplack.project1samryanjamesjose.Activities.CoursesActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
+import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 /**
  * Created by james on 2/16/2020.
@@ -27,7 +27,7 @@ import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 
 
 
-public class CreateAccount extends AppCompatActivity implements OnClickListener {
+public class CreateAccountActivity extends AppCompatActivity implements OnClickListener {
 
     private TextView username;
     private EditText username1;
@@ -107,7 +107,7 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, close
                                 // current activity
-                                Intent intent = new Intent(CreateAccount.this, CoursesActivity.class);
+                                Intent intent = new Intent(CreateAccountActivity.this, CoursesActivity.class);
                                 intent.putExtra("userId", user.getUserId());
                                 startActivity(intent);
                             }
@@ -124,9 +124,9 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
             break;
 
             case R.id.cancel_Button: {
-                //if cancel then go back to homepage, which will be Login.class once finished
+                //if cancel then go back to homepage, which will be LoginActivity.class once finished
 
-                Intent intent = new Intent(getApplicationContext(), CreateAccount.class);
+                Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
                 break;
             }

@@ -1,4 +1,4 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignmen
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.Course;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.CourseDao;
+import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class InsertGradeActivity extends AppCompatActivity {
 

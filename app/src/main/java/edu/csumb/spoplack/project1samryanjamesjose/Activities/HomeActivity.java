@@ -1,4 +1,4 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.csumb.spoplack.project1samryanjamesjose.R;
+
 
 /**
  * Created by james on 2/18/2020.
  */
 
-public class Home extends AppCompatActivity implements OnClickListener {
+public class HomeActivity extends AppCompatActivity implements OnClickListener {
 
     private Button createUser;
     private Button login;
@@ -38,7 +40,7 @@ public class Home extends AppCompatActivity implements OnClickListener {
         switch(v.getId()){
             case R.id.startCreateButton:{
 
-                Intent intent = new Intent(getApplicationContext(), CreateAccount.class);
+                Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
                 break;
 
@@ -48,7 +50,7 @@ public class Home extends AppCompatActivity implements OnClickListener {
 
             case R.id.loginButton:{
                 Toast.makeText(this, "not available yet", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 //                startActivity(intent);
                 break;
 
