@@ -33,7 +33,7 @@ dependencies {
 
     // Annotation processor
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-
+    //implementation 'com.android.support:design:27.1.1'
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     // LiveData
@@ -71,5 +71,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.android.support:design:28.0.1'
 
 }
