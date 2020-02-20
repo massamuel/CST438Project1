@@ -1,55 +1,28 @@
 package edu.csumb.spoplack.project1samryanjamesjose;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
-import edu.csumb.spoplack.project1samryanjamesjose.Activities.MainActivity;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
-import edu.csumb.spoplack.project1samryanjamesjose.R;
+import androidx.room.Room;
 
-import edu.csumb.spoplack.project1samryanjamesjose.Adpaters.CoursesAdapter;
+import java.util.ArrayList;
+
+import edu.csumb.spoplack.project1samryanjamesjose.Activities.CoursesActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.Course;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.CourseDao;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
-
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 
 /**
  * Created by james on 2/16/2020.
  */
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.service.autofill.UserData;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
-import android.app.Activity;
-import android.widget.Toast;
-
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.regex.*;
 
 
 
@@ -124,6 +97,7 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                 user = new User(userN, pass, firstName, lastName);
 
                 myDao.insert(user);
+                user = myDao.getAllUsers(userN, pass).get(0);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                 alertDialogBuilder
@@ -133,7 +107,9 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, close
                                 // current activity
-                                CreateAccount.this.finish();
+                                Intent intent = new Intent(CreateAccount.this, CoursesActivity.class);
+                                intent.putExtra("userId", user.getUserId());
+                                startActivity(intent);
                             }
                         });
 
