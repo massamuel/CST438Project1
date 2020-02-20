@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
@@ -40,8 +41,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
         Assignment assignment = assignments.get(position);
         holder.tvAssignmentId.setText(assignment.getAssignmentName());
-        holder.tvMaxScore.setText(Double.toString(assignment.getMaxScore()));
-        holder.tvEarnedScore.setText(Double.toString(assignment.getEarnedScore()));
+        DecimalFormat df = new DecimalFormat("0.00");
+        holder.tvScore.setText(df.format((assignment.getEarnedScore() / assignment.getMaxScore()) * 100));
 
     }
 
@@ -53,15 +54,13 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvAssignmentId;
-        TextView tvMaxScore;
-        TextView tvEarnedScore;
+        TextView tvScore;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvAssignmentId = itemView.findViewById(R.id.textViewAssignmentId);
-            tvMaxScore = itemView.findViewById(R.id.textViewMaxScore);
-            tvEarnedScore = itemView.findViewById(R.id.textViewEarnedScore);
+            tvScore = itemView.findViewById(R.id.textViewScore);
 
         }
     }
