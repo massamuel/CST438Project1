@@ -47,7 +47,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         holder.tvCourseTitle.setText(course.getTitle());
         holder.tvCourseInstructor.setText(course.getInstructor());
         holder.tvCourseDesc.setText(course.getDescription());
-        holder.tvCourseGrade.setText("90.5");
+        holder.tvCourseGrade.setText(Double.toString(Math.round(course.getCourseGrade() * 100.0) / 100.0));
 
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override

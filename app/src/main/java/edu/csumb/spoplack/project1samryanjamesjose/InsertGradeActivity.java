@@ -13,15 +13,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import java.util.HashMap;
+import java.util.List;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.Course;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.CourseDao;
 
 public class InsertGradeActivity extends AppCompatActivity {
 
 
     private AssignmentDao assignmentDao;
+    private CourseDao courseDao;
+
     //private TextView grades_to_insert;
     private TextView output;
     private EditText insertName;
@@ -46,6 +51,11 @@ public class InsertGradeActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getAssignmentDAO();
+
+        courseDao = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
+                .allowMainThreadQueries()
+                .build()
+                .getCourseDAO();
 
         Intent intent = getIntent();
         userId = intent.getIntExtra("userId", 1);
@@ -84,15 +94,22 @@ public class InsertGradeActivity extends AppCompatActivity {
 
     }
     public void insertToDatabase() {
-        //assignmentDao.insert(new Assignment());
         double Score = Double.parseDouble(insertScore.getText().toString());
         double OutOf = Double.parseDouble(insertOutOf.getText().toString());
         double weightedValue = gWeights.get(gradeTypeSpinner.getSelectedItem().toString());
         String name = insertName.getText().toString();
         assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, weightedValue, name));
+        // getting all assignments to recalculate grade
+        List<Assignment> assignments = assignmentDao.getCourseAssignments(Integer.toString(courseId),
+                                                                  Integer.toString(userId));
+        // getting course to update grade
+        Course course = courseDao.getCourseById(Integer.toString(courseId)).get(0);
+        Double newGrade = Assignment.calculate(assignments);
+        course.setCourseGrade(newGrade * 100.0); // makes percentage out of 100 instead of 1
+        courseDao.update(course);
         finish();
-
     }
+
 
 
 

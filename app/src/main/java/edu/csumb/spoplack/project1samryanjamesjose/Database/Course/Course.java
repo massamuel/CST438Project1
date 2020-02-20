@@ -15,6 +15,7 @@ public class Course {
     private String startDate;
     private String endDate;
     private int studentId;
+    private Double courseGrade;
 
     public Course(String instructor, String title, String description, String startDate, String endDate, Integer studentId) {
         this.instructor = instructor;
@@ -23,10 +24,15 @@ public class Course {
         this.startDate = startDate;
         this.endDate = endDate;
         this.studentId = studentId;
+        this.courseGrade = 0.0;
     }
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
+    }
+
+    public void setCourseGrade(Double courseGrade) {
+        this.courseGrade = courseGrade;
     }
 
     public int getCourseId() {
@@ -54,4 +60,8 @@ public class Course {
     }
 
     public int getStudentId() { return studentId; }
+
+    public Double getCourseGrade() {
+        return courseGrade;
+    }
 }
