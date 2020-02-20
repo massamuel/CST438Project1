@@ -3,25 +3,38 @@ package edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.HashMap;
+import java.util.List;
+
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
-@Entity(tableName = AppDatabase.ASSINMENT_TABLE)
+@Entity(tableName = AppDatabase.ASSIGNMENT_TABLE)
 public class Assignment {
+
+    public static HashMap<String,Double> gWeights = new HashMap<>();
+    static {
+        gWeights.put("Homework",0.3);
+        gWeights.put("Test",0.35);
+        gWeights.put("Projects",0.25);
+        gWeights.put("Quiz",0.1);
+    }
 
     @PrimaryKey(autoGenerate = true)
     private int assignmentId;
-    private int maxScore;
-    private int earnedScore;
+    private double maxScore;
+    private double earnedScore;
     private int courseId;
     private int studentId;
-    private int categoryId;
+    private double categoryWeight;
+    private String assignmentName;
 
-    public Assignment(int maxScore, int earnedScore, int courseId, int studentId, int categoryId) {
+    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, double categoryWeight, String assignmentName) {
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.courseId = courseId;
         this.studentId = studentId;
-        this.categoryId = categoryId;
+        this.categoryWeight = categoryWeight;
+        this.assignmentName = assignmentName;
     }
 
     public void setAssignmentId(int assignmentId) {
@@ -32,11 +45,11 @@ public class Assignment {
         return assignmentId;
     }
 
-    public int getMaxScore() {
+    public double getMaxScore() {
         return maxScore;
     }
 
-    public int getEarnedScore() {
+    public double getEarnedScore() {
         return earnedScore;
     }
 
@@ -48,7 +61,21 @@ public class Assignment {
         return studentId;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public double getCategoryWeight() {
+        return categoryWeight;
+    }
+
+    public String getAssignmentName() {
+        return assignmentName;
+    }
+
+    public static Double calculate(List<Assignment> assignments){
+        Double total = 0.0;
+        Double earned = 0.0;
+        for(Assignment assignment : assignments) {
+            total += assignment.getCategoryWeight() * assignment.getMaxScore();
+            earned += assignment.getCategoryWeight() * assignment.getEarnedScore();
+        }
+        return earned / total;
     }
 }

@@ -28,4 +28,7 @@ public interface CourseDao {
     @Query("SELECT * FROM " + AppDatabase.COURSE_TABLE + " WHERE studentId = :id")
     List<Course> getUsersCourses(String id);
 
+    @Query("SELECT * FROM "+ AppDatabase.COURSE_TABLE + " WHERE courseId = :id")
+    List<Course> getCourseById(String id);
+
 }
