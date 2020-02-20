@@ -25,13 +25,15 @@ public class Assignment {
     private int courseId;
     private int studentId;
     private double categoryWeight;
+    private String assignmentName;
 
-    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, double categoryWeight) {
+    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, double categoryWeight, String assignmentName) {
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.courseId = courseId;
         this.studentId = studentId;
         this.categoryWeight = categoryWeight;
+        this.assignmentName = assignmentName;
     }
 
     public void setAssignmentId(int assignmentId) {
@@ -60,5 +62,9 @@ public class Assignment {
 
     public double getCategoryWeight() {
         return categoryWeight;
+    }
+
+    public String getAssignmentName() {
+        return assignmentName;
     }
 }
