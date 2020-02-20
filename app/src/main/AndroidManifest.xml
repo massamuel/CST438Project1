@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.CoursesActivity"></activity>
-        <activity android:name=".CreateAccount">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +21,8 @@
         <activity android:name=".EligibleActivity" />
         <activity android:name=".InsertGradeActivity" />
         <activity android:name=".UpdateGradesActivity" />
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".Login" />
     </application>
 
 </manifest>
