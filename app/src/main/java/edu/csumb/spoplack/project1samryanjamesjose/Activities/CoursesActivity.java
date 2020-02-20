@@ -65,6 +65,12 @@ public class CoursesActivity extends AppCompatActivity {
         updateList();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateList();
+    }
+
     private void updateList() {
         //TODO: change method to only grab curr user's classes once persisting user is set up
         userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();

@@ -89,7 +89,7 @@ public class ExampleInstrumentedTest {
         Course course = new Course("teacher", "className", "desc",
                 "date1", "date2", user.getUserId());
         Assignment assignment = new Assignment(20, 18, course.getCourseId(),
-                                user.getUserId(), -1);
+                                user.getUserId(), -1, "name");
         assignmentDao.insert(assignment);
         List<Assignment> assignments = assignmentDao.getAllAssignments();
         assertEquals(1, assignments.size());
@@ -110,13 +110,13 @@ public class ExampleInstrumentedTest {
         course2.setCourseId(2);
 
         Assignment assignment1 = new Assignment(20, 20, course1.getCourseId(),
-                user1.getUserId(), -1);
+                user1.getUserId(), -1, "name") ;
         Assignment assignment2 = new Assignment(20, 15, course1.getCourseId(),
-                user1.getUserId(), -1);
+                user1.getUserId(), -1, "name");
         Assignment assignment3 = new Assignment(20, 17, course2.getCourseId(),
-                user1.getUserId(), -1);
+                user1.getUserId(), -1, "name");
         Assignment assignment4 = new Assignment(20, 18, course1.getCourseId(),
-                user2.getUserId(), -1);
+                user2.getUserId(), -1, "name");
         assignmentDao.insert(assignment1);
         assignmentDao.insert(assignment2);
         assignmentDao.insert(assignment3);
@@ -141,13 +141,13 @@ public class ExampleInstrumentedTest {
         HashMap<String, Double> weights = Assignment.gWeights;
 
         Assignment assignment1 = new Assignment(20, 20, course1.getCourseId(),
-                user1.getUserId(), weights.get("Homework"));
+                user1.getUserId(), weights.get("Homework"), "name");
         Assignment assignment2 = new Assignment(20, 15, course1.getCourseId(),
-                user1.getUserId(), weights.get("Test"));
+                user1.getUserId(), weights.get("Test"), "name");
         Assignment assignment3 = new Assignment(20, 18, course1.getCourseId(),
-                user1.getUserId(), weights.get("Quiz"));
+                user1.getUserId(), weights.get("Quiz"), "name");
         Assignment assignment4 = new Assignment(20, 20, course1.getCourseId(),
-                user1.getUserId(), weights.get("Projects"));
+                user1.getUserId(), weights.get("Projects"), "name");
 
         assignmentDao.insert(assignment1);
         assignmentDao.insert(assignment2);
