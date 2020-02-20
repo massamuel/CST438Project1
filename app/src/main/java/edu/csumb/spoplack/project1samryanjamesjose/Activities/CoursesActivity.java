@@ -41,7 +41,8 @@ public class CoursesActivity extends AppCompatActivity {
                 .build()
                 .getCourseDAO();
 
-        userId = 1; // Todo: get userid from login page
+        Intent intent = getIntent();
+        userId = intent.getIntExtra("userId", 1);
 
         updateList();
 
@@ -54,6 +55,7 @@ public class CoursesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CoursesActivity.this, AddCourseActivity.class);
+                intent.putExtra("userId", userId);
                 startActivityForResult(intent, 1);
             }
         });
@@ -71,9 +73,14 @@ public class CoursesActivity extends AppCompatActivity {
         updateList();
     }
 
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
     private void updateList() {
         //TODO: change method to only grab curr user's classes once persisting user is set up
-        userCourses = (ArrayList<Course>) mCourseDao.getAllCourses();
+        userCourses = (ArrayList<Course>) mCourseDao.getUsersCourses(Integer.toString(userId));
         coursesAdapter = new CoursesAdapter(userCourses, userId);
 
         recyclerView = findViewById(R.id.rvClasses);

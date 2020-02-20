@@ -1,6 +1,7 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.User;
 
 
+import androidx.room.ColumnInfo;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -25,6 +26,16 @@ public interface UserDao {
 
     @Query("SELECT * FROM "+ AppDatabase.USER_TABLE)
     List<User> getAllUsers();
+
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userName = :userName AND password = :password")
+    List<User> getAllUsers(String userName, String password);
+
+
+
+
+
+
+
 
 
 }
