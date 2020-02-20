@@ -3,10 +3,20 @@ package edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.HashMap;
+
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
 @Entity(tableName = AppDatabase.ASSIGNMENT_TABLE)
 public class Assignment {
+
+    public static HashMap<String,Double> gWeights = new HashMap<>();
+    static {
+        gWeights.put("Homework",0.3);
+        gWeights.put("Test",0.35);
+        gWeights.put("Projects",0.25);
+        gWeights.put("Quiz",0.1);
+    }
 
     @PrimaryKey(autoGenerate = true)
     private int assignmentId;
@@ -14,14 +24,14 @@ public class Assignment {
     private double earnedScore;
     private int courseId;
     private int studentId;
-    private int categoryId;
+    private double categoryWeight;
 
-    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, int categoryId) {
+    public Assignment(double maxScore, double earnedScore, int courseId, int studentId, double categoryWeight) {
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.courseId = courseId;
         this.studentId = studentId;
-        this.categoryId = categoryId;
+        this.categoryWeight = categoryWeight;
     }
 
     public void setAssignmentId(int assignmentId) {
@@ -48,7 +58,7 @@ public class Assignment {
         return studentId;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public double getCategoryWeight() {
+        return categoryWeight;
     }
 }

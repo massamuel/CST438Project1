@@ -14,11 +14,11 @@ import androidx.room.Room;
 import java.util.HashMap;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
 
 public class InsertGradeActivity extends AppCompatActivity {
 
-    public static HashMap<String,Double> gWeights = new HashMap<String, Double>();
 
     private AssignmentDao assignmentDao;
     //private TextView grades_to_insert;
@@ -35,10 +35,8 @@ public class InsertGradeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        gWeights.put("Homework",35.0);
-        gWeights.put("Test",35.0);
-        gWeights.put("Projects",25.0);
-        gWeights.put("Quiz",5.0);
+
+        HashMap<String, Double> gWeights = Assignment.gWeights;
 
         assignmentDao = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
                 .allowMainThreadQueries()
