@@ -2,7 +2,10 @@ package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,12 +18,14 @@ import edu.csumb.spoplack.project1samryanjamesjose.Adpaters.AssignmentAdapter;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
+import edu.csumb.spoplack.project1samryanjamesjose.InsertGradeActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class AssignmentActivity extends AppCompatActivity {
 
     private AssignmentDao mAssignmentDao;
 
+    private FloatingActionButton fab;
     private RecyclerView recyclerView;
     private AssignmentAdapter assignmentAdapter;
 
@@ -58,5 +63,15 @@ public class AssignmentActivity extends AppCompatActivity {
 //            assignmentAdapter.notifyItemInserted(0);
             Toast.makeText(this, "No assignments yet", Toast.LENGTH_LONG).show();
         }
+
+        fab = findViewById(R.id.fabInsertGrade);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AssignmentActivity.this, InsertGradeActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+
     }
 }
