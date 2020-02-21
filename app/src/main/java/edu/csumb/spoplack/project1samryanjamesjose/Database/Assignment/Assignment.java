@@ -28,14 +28,12 @@ public class Assignment {
     private double categoryWeight;
     private String assignmentName;
 
-//    public HashMap<String,Double> gWeights = new HashMap<>();
-//    static {
-//        gWeights.put("Homework",0.3);
-//        gWeights.put("Test",0.35);
-//        gWeights.put("Projects",0.25);
-//        gWeights.put("Quiz",0.1);
-//    }
-//
+    private double hwWeight;
+    private double testWeight;
+    private double projectWeight;
+    private double quizWeight;
+
+
 
 
     public Assignment(double maxScore, double earnedScore, int courseId, int studentId, double categoryWeight, String assignmentName) {
@@ -45,6 +43,7 @@ public class Assignment {
         this.studentId = studentId;
         this.categoryWeight = categoryWeight;
         this.assignmentName = assignmentName;
+
     }
 
 

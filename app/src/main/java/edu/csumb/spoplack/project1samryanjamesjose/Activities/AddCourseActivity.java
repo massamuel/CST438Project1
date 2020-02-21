@@ -67,19 +67,20 @@ public class AddCourseActivity extends AppCompatActivity {
     }
 
     private void addCourse() {
-        gradedWeights = new HashMap<String,Double>();
-        Double.parseDouble(homeworkWeight.getText().toString());
-        gradedWeights.put("Homework",Double.parseDouble(homeworkWeight.getText().toString()));
-        gradedWeights.put("Test",Double.parseDouble(TestWeight.getText().toString()));
-        gradedWeights.put("Projects",Double.parseDouble(ProjectWeight.getText().toString()));
-        gradedWeights.put("Quiz",Double.parseDouble(QuizWeight.getText().toString()));
+
+
+        double hwWeight = Double.parseDouble(homeworkWeight.getText().toString());
+        double testWeight = Double.parseDouble(TestWeight.getText().toString());
+        double projectWeight = Double.parseDouble(ProjectWeight.getText().toString());
+        double quizWeight = Double.parseDouble(QuizWeight.getText().toString());
+
 
 
         String name = tvName.getText().toString();
         String professor = tvProfessor.getText().toString();
         String description = tvDescription.getText().toString();
         if(name.length() != 0 && professor.length() != 0 && description.length() != 0) {
-            Course course = new Course(professor, name, description, "none", "none", userId, gradedWeights);
+            Course course = new Course(professor, name, description, "none", "none", userId,hwWeight,testWeight,projectWeight,quizWeight);
             mCourseDao.insert(course);
             finish();
         } else {

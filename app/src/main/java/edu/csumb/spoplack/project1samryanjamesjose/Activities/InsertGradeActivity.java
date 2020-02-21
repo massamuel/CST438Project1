@@ -28,6 +28,7 @@ public class InsertGradeActivity extends AppCompatActivity {
     private AssignmentDao assignmentDao;
     private CourseDao courseDao;
 
+
     //private TextView grades_to_insert;
     private TextView output;
     private EditText insertName;
@@ -95,14 +96,44 @@ public class InsertGradeActivity extends AppCompatActivity {
 
     }
     public void insertToDatabase() {
+
+
         double Score = Double.parseDouble(insertScore.getText().toString());
         double OutOf = Double.parseDouble(insertOutOf.getText().toString());
+        String assignmentType = gradeTypeSpinner.getSelectedItem().toString();
+        double assignmentWeightValue = 0;
+
+        List<Course> courseWeights = courseDao.getUsersCourses(Integer.toString(userId));
+        for(Course c: courseWeights) {
+            switch(assignmentType) {
+
+                case "Homework":
+                    assignmentWeightValue = c.getHwWeight();
+                    break;
+
+                case "Test":
+                    assignmentWeightValue = c.getTestWeight();
+                    break;
+
+                case "Quiz":
+                    assignmentWeightValue = c.getQuizWeight();
+                    break;
+
+                case "Projects":
+                    assignmentWeightValue = c.getProjectWeight();
+                    break;
+
+            }
+
+        }
+
         double weightedValue = gWeights.get(gradeTypeSpinner.getSelectedItem().toString());
         String name = insertName.getText().toString();
-        assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, weightedValue, name));
+        assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, assignmentWeightValue, name));
         // getting all assignments to recalculate grade
         List<Assignment> assignments = assignmentDao.getCourseAssignments(Integer.toString(courseId),
                                                                   Integer.toString(userId));
+
         // getting course to update grade
         Course course = courseDao.getCourseById(Integer.toString(courseId)).get(0);
         Double newGrade = Assignment.calculate(assignments);

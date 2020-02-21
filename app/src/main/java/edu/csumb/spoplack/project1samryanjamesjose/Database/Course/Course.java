@@ -18,10 +18,16 @@ public class Course {
     private String endDate;
     private int studentId;
     private Double courseGrade;
-    private HashMap<String, Double > gradeWeights;
+
+    private double hwWeight;
+    private double testWeight;
+    private double projectWeight;
+    private double quizWeight;
 
 
-    public Course(String instructor, String title, String description, String startDate, String endDate, Integer studentId, HashMap<String,Double> gradeWeights ) {
+
+    public Course(String instructor, String title, String description, String startDate, String endDate, Integer studentId,
+                  double hwWeight, double testWeight, double projectWeight, double quizWeight) {
         this.instructor = instructor;
         this.title = title;
         this.description = description;
@@ -29,11 +35,16 @@ public class Course {
         this.endDate = endDate;
         this.studentId = studentId;
         this.courseGrade = 0.0;
-        this.gradeWeights = gradeWeights;
+        this.hwWeight = hwWeight;
+        this.testWeight = testWeight;
+        this.projectWeight = projectWeight;
 
 
 
     }
+
+
+
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
@@ -48,9 +59,10 @@ public class Course {
     }
 
 
-    public void setWeights() {
-
-    }
+    public double getHwWeight() { return hwWeight; }
+    public double getTestWeight() { return testWeight; }
+    public double getProjectWeight() { return projectWeight; }
+    public double getQuizWeight() { return quizWeight; }
 
     public String getInstructor() {
         return instructor;
