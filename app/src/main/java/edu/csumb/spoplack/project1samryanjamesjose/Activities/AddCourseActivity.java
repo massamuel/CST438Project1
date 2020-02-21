@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -23,6 +25,15 @@ public class AddCourseActivity extends AppCompatActivity {
     private TextView tvName;
     private TextView tvDescription;
     private TextView tvProfessor;
+
+    private TextView homeworkWeight;
+    private TextView TestWeight;
+    private TextView QuizWeight;
+    private TextView ProjectWeight;
+
+    private HashMap<String,Double> gradedWeights;
+
+
     private int userId;
 
     @Override
@@ -41,6 +52,10 @@ public class AddCourseActivity extends AppCompatActivity {
         tvName = findViewById(R.id.tvClassName);
         tvProfessor = findViewById(R.id.tvProfessor);
         tvDescription = findViewById(R.id.tvDescription);
+        homeworkWeight = findViewById(R.id.tvHomeworkWeight);
+        TestWeight = findViewById(R.id.tvTestWeight);
+        QuizWeight = findViewById(R.id.tvQuizWeight);
+        ProjectWeight = findViewById(R.id.tvProjectWeight);
 
         submitButton = findViewById(R.id.addCourseButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -52,11 +67,19 @@ public class AddCourseActivity extends AppCompatActivity {
     }
 
     private void addCourse() {
+        gradedWeights = new HashMap<String,Double>();
+        Double.parseDouble(homeworkWeight.getText().toString());
+        gradedWeights.put("Homework",Double.parseDouble(homeworkWeight.getText().toString()));
+        gradedWeights.put("Test",Double.parseDouble(TestWeight.getText().toString()));
+        gradedWeights.put("Projects",Double.parseDouble(ProjectWeight.getText().toString()));
+        gradedWeights.put("Quiz",Double.parseDouble(QuizWeight.getText().toString()));
+
+
         String name = tvName.getText().toString();
         String professor = tvProfessor.getText().toString();
         String description = tvDescription.getText().toString();
         if(name.length() != 0 && professor.length() != 0 && description.length() != 0) {
-            Course course = new Course(professor, name, description, "none", "none", userId);
+            Course course = new Course(professor, name, description, "none", "none", userId, gradedWeights);
             mCourseDao.insert(course);
             finish();
         } else {

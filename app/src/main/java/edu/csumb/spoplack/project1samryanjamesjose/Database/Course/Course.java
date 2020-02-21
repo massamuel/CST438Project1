@@ -1,6 +1,8 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.Course;
 
 
+import java.util.HashMap;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,8 +18,10 @@ public class Course {
     private String endDate;
     private int studentId;
     private Double courseGrade;
+    private HashMap<String, Double > gradeWeights;
 
-    public Course(String instructor, String title, String description, String startDate, String endDate, Integer studentId) {
+
+    public Course(String instructor, String title, String description, String startDate, String endDate, Integer studentId, HashMap<String,Double> gradeWeights ) {
         this.instructor = instructor;
         this.title = title;
         this.description = description;
@@ -25,6 +29,10 @@ public class Course {
         this.endDate = endDate;
         this.studentId = studentId;
         this.courseGrade = 0.0;
+        this.gradeWeights = gradeWeights;
+
+
+
     }
 
     public void setCourseId(int courseId) {
@@ -37,6 +45,11 @@ public class Course {
 
     public int getCourseId() {
         return courseId;
+    }
+
+
+    public void setWeights() {
+
     }
 
     public String getInstructor() {
@@ -64,4 +77,6 @@ public class Course {
     public Double getCourseGrade() {
         return courseGrade;
     }
+
+
 }

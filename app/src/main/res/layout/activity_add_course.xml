@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".Activities.AddCourseActivity">
 
+    <EditText
+        android:id="@+id/tvProjectWeight"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="Project"
+        android:inputType="textShortMessage|textPersonName|numberDecimal"
+        tools:layout_editor_absoluteX="254dp"
+        tools:layout_editor_absoluteY="312dp" />
+
+    <EditText
+        android:id="@+id/tvQuizWeight"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="Quiz"
+        android:inputType="textPersonName|numberDecimal"
+        tools:layout_editor_absoluteX="254dp"
+        tools:layout_editor_absoluteY="251dp" />
+
+    <EditText
+        android:id="@+id/tvTestWeight"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="test"
+        android:inputType="textPersonName|numberDecimal"
+        tools:layout_editor_absoluteX="254dp"
+        tools:layout_editor_absoluteY="174dp" />
+
     <Button
         android:id="@+id/addCourseButton"
         android:layout_width="wrap_content"
@@ -52,5 +82,15 @@
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfessor" />
+
+    <EditText
+        android:id="@+id/tvHomeworkWeight"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="homework"
+        android:inputType="textPersonName|numberDecimal"
+        tools:layout_editor_absoluteX="254dp"
+        tools:layout_editor_absoluteY="101dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
