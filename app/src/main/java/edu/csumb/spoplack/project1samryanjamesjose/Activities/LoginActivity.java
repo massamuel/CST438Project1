@@ -76,12 +76,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 startActivity(intent);
                 break;
 
-
-
-
-
-
-
         }
     }
 
