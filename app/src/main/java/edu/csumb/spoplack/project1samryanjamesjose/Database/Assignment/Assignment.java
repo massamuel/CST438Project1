@@ -28,10 +28,6 @@ public class Assignment {
     private double categoryWeight;
     private String assignmentName;
 
-    private double hwWeight;
-    private double testWeight;
-    private double projectWeight;
-    private double quizWeight;
 
 
 
