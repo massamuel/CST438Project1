@@ -30,6 +30,7 @@ public class CoursesActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private ArrayList<Course> userCourses;
     private int userId;
+    private FloatingActionButton logoutfab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +52,22 @@ public class CoursesActivity extends AppCompatActivity {
         }
 
         fab = findViewById(R.id.fabAddCourse);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CoursesActivity.this, AddCourseActivity.class);
                 intent.putExtra("userId", userId);
                 startActivityForResult(intent, 1);
+            }
+        });
+        logoutfab = findViewById(R.id.logOutButton);
+        logoutfab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logOutIntent = new Intent(CoursesActivity.this, HomeActivity.class);
+                startActivityForResult(logOutIntent,1);
+
             }
         });
     }
@@ -83,7 +94,7 @@ public class CoursesActivity extends AppCompatActivity {
         userCourses = (ArrayList<Course>) mCourseDao.getUsersCourses(Integer.toString(userId));
         coursesAdapter = new CoursesAdapter(userCourses, userId);
 
-        recyclerView = findViewById(R.id.rvClasses);
+        recyclerView = findViewById(R.id.logOutButton);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(coursesAdapter);
     }
