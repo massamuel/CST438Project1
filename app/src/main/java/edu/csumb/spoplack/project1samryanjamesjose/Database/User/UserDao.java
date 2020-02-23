@@ -1,9 +1,12 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.User;
 
 
+<<<<<<< HEAD
 import android.media.session.MediaSession;
 
 import androidx.room.ColumnInfo;
+=======
+>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;

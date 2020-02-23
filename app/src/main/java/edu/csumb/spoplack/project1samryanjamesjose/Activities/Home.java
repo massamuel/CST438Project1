@@ -1,4 +1,4 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import android.view.View;
 
 
 import androidx.room.Database;
-import edu.csumb.spoplack.project1samryanjamesjose.Activities.MainActivity;
+import edu.csumb.spoplack.project1samryanjamesjose.Activities.HomeActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
 
@@ -65,7 +65,7 @@ public class Home extends AppCompatActivity implements OnClickListener {
         switch(v.getId()){
             case R.id.startCreateButton:{
 
-                Intent intent = new Intent(getApplicationContext(), CreateAccount.class);
+                Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
                 break;
 

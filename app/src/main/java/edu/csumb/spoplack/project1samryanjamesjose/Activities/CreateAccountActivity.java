@@ -1,60 +1,33 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
-import edu.csumb.spoplack.project1samryanjamesjose.Activities.MainActivity;
+import androidx.room.Room;
+
+import java.util.ArrayList;
+
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
-
-import edu.csumb.spoplack.project1samryanjamesjose.Adpaters.CoursesAdapter;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.Course;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.Course.CourseDao;
-import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
-
 
 /**
  * Created by james on 2/16/2020.
  */
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.service.autofill.UserData;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
-import android.app.Activity;
-import android.widget.Toast;
-
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.regex.*;
 
 
 
-
-public class CreateAccount extends AppCompatActivity implements OnClickListener {
+public class CreateAccountActivity extends AppCompatActivity implements OnClickListener {
 
     private TextView username;
     private EditText username1;
@@ -124,6 +97,7 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                 user = new User(userN, pass, firstName, lastName);
 
                 myDao.insert(user);
+                user = myDao.getAllUsers(userN, pass).get(0);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                 alertDialogBuilder
@@ -133,7 +107,12 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, close
                                 // current activity
+//<<<<<<< HEAD:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/CreateAccount.java
                                 Intent intent = new Intent(getApplicationContext(), Home.class);
+//=======
+                                Intent intent = new Intent(CreateAccountActivity.this, CoursesActivity.class);
+                                intent.putExtra("userId", user.getUserId());
+//>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Activities/CreateAccountActivity.java
                                 startActivity(intent);
                             }
                         });
@@ -149,9 +128,9 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
             break;
 
             case R.id.cancel_Button: {
-                //if cancel then go back to homepage, which will be Login.class once finished
+                //if cancel then go back to homepage, which will be LoginActivity.class once finished
 
-                Intent intent = new Intent(getApplicationContext(), CreateAccount.class);
+                Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
                 break;
             }

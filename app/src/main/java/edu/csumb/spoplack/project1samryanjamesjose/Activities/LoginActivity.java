@@ -1,4 +1,5 @@
-package edu.csumb.spoplack.project1samryanjamesjose;
+//app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Login.java
+package edu.csumb.spoplack.project1samryanjamesjose.Activities;
 
 import android.os.Bundle;
 
@@ -20,44 +21,42 @@ import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
  * Created by james on 2/16/2020.
  */
 
+//package edu.csumb.spoplack.project1samryanjamesjose.Activities;
+//>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Activities/LoginActivity.java
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.service.autofill.UserData;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+//<<<<<<< HEAD:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Login.java
 import android.widget.TextView.OnEditorActionListener;
 import android.app.Activity;
 import android.widget.Toast;
 import java.util.List;
 
+//>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Activities/LoginActivity.java
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
-import java.util.ArrayList;
-import java.lang.Boolean;
-import java.util.regex.*;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
+import edu.csumb.spoplack.project1samryanjamesjose.R;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
 
 
+/**
+ * Created by james on 2/16/2020.
+ */
 
 
+//<<<<<<< HEAD:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Login.java
 public class Login extends AppCompatActivity implements OnClickListener {
+public class LoginActivity extends AppCompatActivity implements OnClickListener{
+//>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Activities/LoginActivity.java
 
     private TextView usrname;
     private EditText usrname1;
@@ -110,6 +109,12 @@ public class Login extends AppCompatActivity implements OnClickListener {
                 getPwd = passwd1.getText().toString();
 
 
+             myDao.getAllUsers(getUsr, getPwd);
+                Intent intent = new Intent(getApplicationContext(), CoursesActivity.class);
+                startActivity(intent);
+                break;
+//>>>>>>> ed74dec8d5a08c4372b7b9f5d62d867c43ac47de:app/src/main/java/edu/csumb/spoplack/project1samryanjamesjose/Activities/LoginActivity.java
+
 
 
                 Users = myDao.getAllUsers(getUsr, getPwd);
@@ -122,8 +127,8 @@ public class Login extends AppCompatActivity implements OnClickListener {
                 else {
 
                     Users.equals(Users.get(0));
-                    Intent intent = new Intent(getApplicationContext(), CoursesActivity.class);
-                    startActivity(intent);
+                    Intent i = new Intent(getApplicationContext(), CoursesActivity.class);
+                    startActivity(i);
                     break;
 
 
