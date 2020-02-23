@@ -105,25 +105,23 @@ public class InsertGradeActivity extends AppCompatActivity {
 
         List<Course> courseWeights = courseDao.getUsersCourses(Integer.toString(userId));
         for(Course c: courseWeights) {
-            switch(assignmentType) {
-
-                case "Homework":
-                    assignmentWeightValue = c.getHwWeight();
-                    break;
-
-                case "Test":
-                    assignmentWeightValue = c.getTestWeight();
-                    break;
-
-                case "Quiz":
-                    assignmentWeightValue = c.getQuizWeight();
-                    break;
-
-                case "Projects":
-                    assignmentWeightValue = c.getProjectWeight();
-                    break;
-
+            if(assignmentType.equals( "Homework")) {
+                assignmentWeightValue = c.getHwWeight();
+                break;
             }
+            else if(assignmentType.equals( "Test")) {
+                assignmentWeightValue = c.getTestWeight();
+            }
+            else if(assignmentType.equals( "Quiz")) {
+                assignmentWeightValue = c.getQuizWeight();
+                break;
+            }
+            else if(assignmentType.equals( "Projects")) {
+                assignmentWeightValue = c.getProjectWeight();
+                break;
+            }
+
+
 
         }
 
