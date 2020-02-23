@@ -1,6 +1,8 @@
 package edu.csumb.spoplack.project1samryanjamesjose.Database.User;
 
 
+import android.media.session.MediaSession;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -23,6 +25,9 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+
+
 
     @Query("SELECT * FROM "+ AppDatabase.USER_TABLE)
     List<User> getAllUsers();

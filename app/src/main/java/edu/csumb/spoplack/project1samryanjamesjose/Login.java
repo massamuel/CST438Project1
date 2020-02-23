@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Database;
+import edu.csumb.spoplack.project1samryanjamesjose.Activities.CoursesActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Activities.MainActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
@@ -44,6 +45,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.app.Activity;
 import android.widget.Toast;
+import java.util.List;
 
 
 import org.w3c.dom.Text;
@@ -55,7 +57,7 @@ import java.util.regex.*;
 
 
 
-public class Login extends AppCompatActivity implements OnClickListener{
+public class Login extends AppCompatActivity implements OnClickListener {
 
     private TextView usrname;
     private EditText usrname1;
@@ -64,8 +66,10 @@ public class Login extends AppCompatActivity implements OnClickListener{
     private Button login_butt;
     private UserDao myDao;
     private AppDatabase myDb;
+    User user;
     String getUsr;
     String getPwd;
+    List<User> Users;
 
     private Button cancel_login_Button;
 
@@ -81,7 +85,6 @@ public class Login extends AppCompatActivity implements OnClickListener{
         passwd1 = (EditText) findViewById(R.id.password_Input);
 
 
-
         login_butt = (Button) findViewById(R.id.loginButton);
         cancel_login_Button = (Button) findViewById(R.id.cancel_log);
 
@@ -91,7 +94,7 @@ public class Login extends AppCompatActivity implements OnClickListener{
                 .build()
                 .getUserDAO();
 
-        myDb.getUserDAO();
+        // myDb.getUserDAO();
 
 
         login_butt.setOnClickListener(this);
@@ -99,37 +102,66 @@ public class Login extends AppCompatActivity implements OnClickListener{
 
     }
 
-    public void onClick(View v){
-        switch(v.getId()){
-            case R.id.loginButton:
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.loginButton: {
 
                 getUsr = usrname1.getText().toString();
                 getPwd = passwd1.getText().toString();
 
-             myDao.getAllUsers(getUsr, getPwd);
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+
+
+                Users = myDao.getAllUsers(getUsr, getPwd);
+
+                if(Users.isEmpty()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "User Login Failed", Toast.LENGTH_SHORT);
+                    toast.show();
+
+                }
+                else {
+
+                    Users.equals(Users.get(0));
+                    Intent intent = new Intent(getApplicationContext(), CoursesActivity.class);
+                    startActivity(intent);
+                    break;
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+            }
+            case R.id.cancel_log:{
+                Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
                 break;
 
-
-
-
-
-
-
+            }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

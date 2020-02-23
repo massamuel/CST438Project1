@@ -35,12 +35,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/loginButton"/>
+            android:id="@+id/loginButton"
+            android:text="Login"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cancel_log"/>
+            android:id="@+id/cancel_log"
+            android:text="Cancel"/>
 
 
 

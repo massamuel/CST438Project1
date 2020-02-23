@@ -133,7 +133,8 @@ public class CreateAccount extends AppCompatActivity implements OnClickListener 
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, close
                                 // current activity
-                                CreateAccount.this.finish();
+                                Intent intent = new Intent(getApplicationContext(), Home.class);
+                                startActivity(intent);
                             }
                         });
 
