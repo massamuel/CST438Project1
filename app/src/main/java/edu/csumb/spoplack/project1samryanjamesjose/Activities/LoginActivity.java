@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 .build()
                 .getUserDAO();
 
-        myDb.getUserDAO();
+        //myDb.getUserDAO();
 
 
         login_butt.setOnClickListener(this);
