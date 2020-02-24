@@ -26,5 +26,15 @@ public interface UserDao {
     @Query("SELECT * FROM "+ AppDatabase.USER_TABLE)
     List<User> getAllUsers();
 
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE userName = :userName AND password = :password")
+    List<User> getAllUsers(String userName, String password);
+
+
+
+
+
+
+
+
 
 }

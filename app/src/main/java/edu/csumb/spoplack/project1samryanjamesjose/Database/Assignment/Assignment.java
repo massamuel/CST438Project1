@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.HashMap;
+import java.util.List;
 
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 
@@ -66,5 +67,15 @@ public class Assignment {
 
     public String getAssignmentName() {
         return assignmentName;
+    }
+
+    public static Double calculate(List<Assignment> assignments){
+        Double total = 0.0;
+        Double earned = 0.0;
+        for(Assignment assignment : assignments) {
+            total += assignment.getCategoryWeight() * assignment.getMaxScore();
+            earned += assignment.getCategoryWeight() * assignment.getEarnedScore();
+        }
+        return earned / total;
     }
 }

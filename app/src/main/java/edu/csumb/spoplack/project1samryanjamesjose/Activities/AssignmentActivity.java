@@ -21,7 +21,6 @@ import edu.csumb.spoplack.project1samryanjamesjose.Adpaters.AssignmentAdapter;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.Assignment;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.Assignment.AssignmentDao;
-import edu.csumb.spoplack.project1samryanjamesjose.InsertGradeActivity;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
 
 public class AssignmentActivity extends AppCompatActivity {
