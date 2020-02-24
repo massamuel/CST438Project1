@@ -125,7 +125,7 @@ public class InsertGradeActivity extends AppCompatActivity {
 
         }
 
-        double weightedValue = gWeights.get(gradeTypeSpinner.getSelectedItem().toString());
+//        double weightedValue = gWeights.get(gradeTypeSpinner.getSelectedItem().toString());
         String name = insertName.getText().toString();
         assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, assignmentWeightValue, name));
         // getting all assignments to recalculate grade

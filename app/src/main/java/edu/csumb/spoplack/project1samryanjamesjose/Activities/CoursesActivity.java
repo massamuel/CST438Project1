@@ -61,6 +61,7 @@ public class CoursesActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+
         logoutfab = findViewById(R.id.logOutButton);
         logoutfab.setOnClickListener(new View.OnClickListener() {
             @Override
