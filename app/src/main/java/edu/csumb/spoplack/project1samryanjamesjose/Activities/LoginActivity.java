@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -14,6 +15,8 @@ import androidx.room.Room;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.AppDatabase;
 import edu.csumb.spoplack.project1samryanjamesjose.Database.User.UserDao;
 import edu.csumb.spoplack.project1samryanjamesjose.R;
+import edu.csumb.spoplack.project1samryanjamesjose.Database.User.User;
+import java.util.List;
 
 /**
  * Created by james on 2/16/2020.
@@ -31,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     private AppDatabase myDb;
     String getUsr;
     String getPwd;
+    List<User> Users; 
 
     private Button cancel_login_Button;
 
@@ -56,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 .build()
                 .getUserDAO();
 
-        myDb.getUserDAO();
+        //myDb.getUserDAO();
 
 
         login_butt.setOnClickListener(this);
@@ -66,23 +70,45 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     public void onClick(View v){
         switch(v.getId()){
-            case R.id.loginButton:
+            case R.id.loginButton:{
 
                 getUsr = usrname1.getText().toString();
                 getPwd = passwd1.getText().toString();
 
-             myDao.getAllUsers(getUsr, getPwd);
-                Intent intent = new Intent(getApplicationContext(), CoursesActivity.class);
+            Users = myDao.getAllUsers(getUsr, getPwd);
+                if(Users.isEmpty()){
+                     Toast toast = Toast.makeText(getApplicationContext(), "User Login Failed", Toast.LENGTH_SHORT);
+                    toast.show();
+
+                    
+                    
+                }else{
+                    
+                    Users.equals(Users.get(0));
+                    Intent intent = new Intent(getApplicationContext(), CoursesActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+
+
+            }
+            case R.id.cancel_log:{
+                
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
                 break;
 
-
-
+              
+                
+                
+                
+            }
 
 
 
 
         }
+        
     }
 
 
