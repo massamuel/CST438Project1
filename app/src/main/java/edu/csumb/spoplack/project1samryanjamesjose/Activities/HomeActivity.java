@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.homepage);
 
         createUser = (Button) findViewById(R.id.startCreateButton);
-        login = (Button) findViewById(R.id.loginButton);
+        login = (Button) findViewById(R.id.login_Button);
 
         login.setOnClickListener(this);
         createUser.setOnClickListener(this);
@@ -48,10 +48,10 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
             }
 
 
-            case R.id.loginButton:{
-                Toast.makeText(this, "not available yet", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(intent);
+            case R.id.login_Button:{
+               // Toast.makeText(this, "not available yet", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
                 break;
 
             }

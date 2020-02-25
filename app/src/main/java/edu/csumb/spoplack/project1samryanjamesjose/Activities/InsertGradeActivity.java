@@ -80,15 +80,6 @@ public class InsertGradeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-//                AlertDialog calculatedDialogue = new AlertDialog.Builder(InsertGradeActivity.this).create();
-//                calculatedDialogue.setTitle("Grade caluclated!");
-//                calculatedDialogue.setMessage("Your grade needed to get GOAL is: " );
-                //Required = (Goal − Current × (100% − Final Weight)) / Final Weight
-//                (Goal - Current * (1 - weight ))/weight
-
-//                calculatedDialogue.show();
-
                 insertToDatabase();
 
             }
@@ -127,8 +118,16 @@ public class InsertGradeActivity extends AppCompatActivity {
 
 //        double weightedValue = gWeights.get(gradeTypeSpinner.getSelectedItem().toString());
         String name = insertName.getText().toString();
+<<<<<<< HEAD
         assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, assignmentWeightValue, name));
         // getting all assignments to recalculate grade
+=======
+        assignmentDao.insert(new Assignment(OutOf, Score, courseId, userId, weightedValue, name));
+
+        finish(); //takes user back to previoius activity
+
+
+>>>>>>> 7ecd85767b29175dfbd07b24e1fc08d090c930b3
         List<Assignment> assignments = assignmentDao.getCourseAssignments(Integer.toString(courseId),
                                                                   Integer.toString(userId));
 
@@ -138,6 +137,7 @@ public class InsertGradeActivity extends AppCompatActivity {
         course.setCourseGrade(newGrade * 100.0); // makes percentage out of 100 instead of 1
         courseDao.update(course);
         finish();
+
     }
 
 
